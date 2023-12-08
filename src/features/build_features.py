@@ -1,3 +1,12 @@
+import pandas as pd
+import numpy as np
+
+data = pd.read_csv(r'data/raw/storedata.csv')
+
+df = data.copy()
+df['year'] = df['date'].apply(lambda x: str(x)[:4])
+df['month'] = df['date'].apply(lambda x: str(x)[:7])
+
 # Create dataframe for transformation from time series to supervised
 def generate_supervised(data):
     supervised_df = data.copy()
